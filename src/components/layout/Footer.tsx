@@ -15,14 +15,14 @@ const footerLinks = {
     { label: "Direito do Trabalho", href: "#especialidades" },
     { label: "Direito Previdenciário", href: "#especialidades" },
     { label: "Direito Cível", href: "#especialidades" },
-    { label: "Direito Criminal", href: "#especialidades" },
+    { label: "Direito Bancário", href: "#especialidades" },
   ],
 };
 
 export default function Footer() {
   return (
     <footer className="bg-white border-t border-border-subtle pt-16 pb-8">
-      <div className="max-w-[1200px] mx-auto px-6">
+      <div className="max-w-300 mx-auto px-6">
         {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-14">
           {/* Brand */}
@@ -35,9 +35,9 @@ export default function Footer() {
                 {companyData.companyName}
               </span> */}
             </div>
-            <p className="text-muted-foreground text-[13px] font-body leading-[1.7] max-w-[280px] mb-5">
+            <p className="text-muted-foreground text-[13px] font-body leading-[1.7] max-w-70 mb-5">
               Escritório de advocacia especializado em Direito do Trabalho,
-              Previdenciário, Cível e Criminal. Atendimento em todo o Brasil.
+              Previdenciário e Cível. Atendimento em todo o Brasil.
             </p>
             {/* Social */}
             <div className="flex items-center gap-3">

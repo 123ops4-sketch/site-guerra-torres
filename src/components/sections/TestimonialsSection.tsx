@@ -15,7 +15,7 @@ export default function TestimonialsSection() {
       className="py-20 bg-bg-section"
       ref={ref as React.RefObject<HTMLElement>}
     >
-      <div className="max-w-[1200px] mx-auto px-6">
+      <div className="max-w-300 mx-auto px-6">
         <div
           className={`text-center mb-14 transition-all duration-500 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
@@ -30,7 +30,7 @@ export default function TestimonialsSection() {
           >
             Depoimentos
           </h2>
-          <p className="text-text-muted text-sm max-w-[480px] mx-auto leading-relaxed font-body">
+          <p className="text-text-muted text-sm max-w-120 mx-auto leading-relaxed font-body">
             Clientes que confiaram na {companyData.companyName} para projetos de energia solar e engenharia elétrica.
           </p>
         </div>

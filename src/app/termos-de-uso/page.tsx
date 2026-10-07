@@ -25,7 +25,7 @@ export default function TermosDeUsoPage() {
     <>
       <Navbar />
       <main className="min-h-screen bg-bg-base">
-        <div className="max-w-[720px] mx-auto px-6 py-10">
+        <div className="max-w-180 mx-auto px-6 py-10">
           <nav
             aria-label="Navegação estrutural"
             className="mb-8 flex items-center gap-1 text-sm font-body text-text-muted"

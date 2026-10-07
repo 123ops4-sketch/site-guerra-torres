@@ -1,6 +1,9 @@
+import Link from "next/link";
 import {
+  ArrowRight,
   ExternalLink,
   Facebook,
+  Globe,
   Instagram,
   Linkedin,
   Music2,
@@ -45,10 +48,22 @@ export default function BioLinksList() {
   return (
     <section className="space-y-2">
       <h3 className="text-sm font-heading font-semibold text-text-primary">
-        Links uteis
+        Links úteis
       </h3>
 
       <div className="space-y-2">
+        <Link
+          href="/"
+          className="flex min-h-12 items-center justify-between rounded-xl border border-border-default bg-bg-card px-4 py-3 transition-colors hover:border-primary/40 hover:bg-bg-card-hover"
+          aria-label="Ir para a página principal"
+        >
+          <span className="flex items-center gap-2 text-sm font-body text-text-secondary">
+            <Globe className="h-4 w-4 text-primary" aria-hidden />
+            Site oficial
+          </span>
+          <ArrowRight className="h-4 w-4 text-text-muted" aria-hidden />
+        </Link>
+
         {socialLinks.map((item) => {
           if (!item.data?.url) return null;
           const Icon = item.icon;

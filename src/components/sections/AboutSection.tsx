@@ -1,12 +1,33 @@
 "use client";
 
-import Image from "next/image";
+import { useEffect, useRef } from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { companyData } from "@/data/companyData";
 
+function lockSilent(video: HTMLVideoElement) {
+  video.defaultMuted = true;
+  if (!video.muted) video.muted = true;
+  if (video.volume !== 0) video.volume = 0;
+}
 
 export default function AboutSection() {
   const { ref, isVisible } = useScrollAnimation();
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    lockSilent(video);
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!isVisible || reduceMotion) {
+      video.pause();
+      return;
+    }
+
+    void video.play().catch(() => { });
+  }, [isVisible]);
 
   return (
     <section
@@ -14,11 +35,35 @@ export default function AboutSection() {
       className="py-20 bg-linear-to-tr from-bg-base via-bg-section to-bg-base"
       ref={ref as React.RefObject<HTMLElement>}
     >
-      <div className="max-w-[1200px] mx-auto px-6">
+      <div className="max-w-300 mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Text + Stats */}
           <div
-            className={`transition-all duration-600 delay-200 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
+            className={`transition-all duration-600 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
+              }`}
+          >
+            <div className="relative mx-auto aspect-3/4 w-full max-w-110 overflow-hidden rounded-2xl lg:mx-0 lg:aspect-9/16 lg:max-w-90">
+              <video
+                ref={videoRef}
+                src="/about-video.mp4?v=2"
+                poster="/about-video-poster.jpg"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                disablePictureInPicture
+                aria-label={`Vídeo do escritório da ${companyData.companyName}`}
+                className="absolute inset-0 h-full w-full object-cover"
+                onLoadedMetadata={(event) => lockSilent(event.currentTarget)}
+                onPlay={(event) => lockSilent(event.currentTarget)}
+                onTimeUpdate={(event) => lockSilent(event.currentTarget)}
+                onVolumeChange={(event) => lockSilent(event.currentTarget)}
+              />
+            </div>
+          </div>
+
+          <div
+            className={`transition-all duration-600 delay-200 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
               }`}
           >
             <span className="inline-block text-[11px] font-semibold tracking-[0.12em] uppercase text-primary font-heading mb-3">
@@ -37,23 +82,6 @@ export default function AboutSection() {
               Assim, nossa equipe sempre busca deixar o ambiente de trabalho bem aconchegante, para proporcionar conforto e acolhimento aos nossos clientes, para que se sintam à vontade, e voltem sempre que quiserem e precisarem.
               Buscamos sempre cultivar boas relações, boas conversas e transmitir confiança.
             </p>
-          </div>
-
-          {/* Image */}
-          <div
-            className={`transition-all duration-600 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
-              }`}
-          >
-            <div className="relative rounded-2xl overflow-hidden aspect-16/10">
-              <Image
-                src="/about-picture.jpg"
-                alt={`Equipe da ${companyData.companyName} em atendimento jurídico`}
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-linear-to-tr from-bg-base/70 via-transparent to-transparent" />
-            </div>
           </div>
         </div>
       </div>

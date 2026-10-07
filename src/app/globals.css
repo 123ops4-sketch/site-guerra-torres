@@ -7,13 +7,14 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
+  --font-sans: var(--font-source-serif), "Source Serif 4", "Times New Roman", serif;
+  --font-serif: var(--font-source-serif), "Source Serif 4", "Times New Roman", serif;
   --font-mono: var(--font-geist-mono);
 
-  /* Engysol Design Tokens */
-  --color-primary: #bf9b60;
-  --color-primary-light: #bf9b60;
-  --color-primary-dark: #bf9b60;
+  /* GT Advocacia — vinho e dourado */
+  --color-primary: #561e29;
+  --color-primary-light: #7a3142;
+  --color-primary-dark: #3e1520;
   --color-bg-base: #f8f8f7;
   --color-bg-section: #f3f3f2;
   --color-bg-section-mid: #eeeeec;
@@ -57,15 +58,15 @@
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
 
-  /* Font families */
-  --font-heading: var(--font-montserrat), "Montserrat", sans-serif;
-  --font-body: var(--font-open-sans), "Open Sans", sans-serif;
+  /* Font families — serifada de transição, no espírito da peça institucional */
+  --font-heading: var(--font-source-serif), "Source Serif 4", "Times New Roman", serif;
+  --font-body: var(--font-source-serif), "Source Serif 4", "Times New Roman", serif;
 
   /* Custom shadows */
   --shadow-card: 0 2px 16px rgba(0, 0, 0, 0.3);
   --shadow-card-hover: 0 12px 40px rgba(0, 0, 0, 0.5);
-  --shadow-orange: 0 8px 24px rgba(191, 155, 96, 0.3);
-  --shadow-glow: 0 0 40px rgba(191, 155, 96, 0.12);
+  --shadow-orange: 0 8px 24px rgba(86, 30, 41, 0.28);
+  --shadow-glow: 0 0 40px rgba(202, 164, 101, 0.22);
 }
 
 :root {
@@ -75,28 +76,27 @@
   --card-foreground: #1f1f1f;
   --popover: #ffffff;
   --popover-foreground: #1f1f1f;
-  --primary: #bf9b60;
+  --primary: #561e29;
   --primary-foreground: #ffffff;
-  --secondary: #f2f2f1;
+  --secondary: #caa465;
   --secondary-foreground: #1f1f1f;
   --muted: #f2f2f1;
   --muted-foreground: #6b6b6b;
   --accent: #f3f3f2;
   --accent-foreground: #1f1f1f;
-  /* Mantém a paleta restrita a neutros claros e dourado (sem vermelho). */
-  --destructive: #bf9b60;
+  --destructive: #561e29;
   --border: #e5e5e3;
   --input: #e5e5e3;
-  --ring: #bf9b60;
+  --ring: #561e29;
   --radius: 0.75rem;
   --sidebar: #ffffff;
   --sidebar-foreground: #1f1f1f;
-  --sidebar-primary: #bf9b60;
+  --sidebar-primary: #561e29;
   --sidebar-primary-foreground: #ffffff;
   --sidebar-accent: #f3f3f2;
   --sidebar-accent-foreground: #1f1f1f;
   --sidebar-border: #e5e5e3;
-  --sidebar-ring: #bf9b60;
+  --sidebar-ring: #561e29;
 }
 
 @layer base {
@@ -109,7 +109,7 @@
   }
   body {
     @apply bg-bg-base text-text-primary;
-    font-family: var(--font-open-sans), "Open Sans", sans-serif;
+    font-family: var(--font-source-serif), "Source Serif 4", "Times New Roman", serif;
     font-size: 16px; /* Mínimo 16px para evitar zoom em inputs no iOS */
     overflow-x: hidden;
   }
@@ -119,12 +119,12 @@
   h4,
   h5,
   h6 {
-    font-family: var(--font-montserrat), "Montserrat", sans-serif;
+    font-family: var(--font-source-serif), "Source Serif 4", "Times New Roman", serif;
   }
   /* Foco visível para acessibilidade (teclado) */
   a:focus-visible,
   button:focus-visible {
-    @apply outline-none ring-2 ring-[#bf9b60] ring-offset-2 ring-offset-bg-base;
+    @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-bg-base;
   }
 }
 
@@ -144,25 +144,25 @@
 
 @layer utilities {
   .font-heading {
-    font-family: var(--font-montserrat), "Montserrat", sans-serif;
+    font-family: var(--font-source-serif), "Source Serif 4", "Times New Roman", serif;
   }
   .font-body {
-    font-family: var(--font-open-sans), "Open Sans", sans-serif;
+    font-family: var(--font-source-serif), "Source Serif 4", "Times New Roman", serif;
   }
   .text-gradient-orange {
-    background: linear-gradient(135deg, #bf9b60 0%, #bf9b60 100%);
+    background: linear-gradient(135deg, #561e29 0%, #caa465 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
   .bg-gradient-orange {
-    background: linear-gradient(135deg, #bf9b60 0%, #bf9b60 100%);
+    background: linear-gradient(135deg, #561e29 0%, #6e2836 100%);
   }
   .glow-orange {
-    box-shadow: 0 0 40px rgba(191, 155, 96, 0.15);
+    box-shadow: 0 0 40px rgba(202, 164, 101, 0.22);
   }
   .shadow-orange {
-    box-shadow: 0 8px 24px rgba(191, 155, 96, 0.3);
+    box-shadow: 0 8px 24px rgba(86, 30, 41, 0.28);
   }
 }
 

@@ -3,7 +3,7 @@ import { companyData } from "@/data/companyData";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
 const DEFAULT_MESSAGE =
-  "Ola! Vim pelo link da bio e quero falar sobre meu caso.";
+  "Olá! Vim pelo link da bio e quero falar sobre meu caso.";
 
 export default function BioPrimaryCta() {
   const whatsappUrl = buildWhatsAppUrl(companyData.whatsapp, DEFAULT_MESSAGE);

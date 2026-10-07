@@ -34,7 +34,7 @@ const DialogViewport = React.forwardRef<
   <DialogPrimitive.Viewport
     ref={ref}
     className={cn(
-      "fixed left-1/2 top-1/2 z-50 flex max-h-[85vh] w-full max-w-[560px] -translate-x-1/2 -translate-y-1/2 justify-center p-4",
+      "fixed left-1/2 top-1/2 z-50 flex max-h-[85vh] w-full max-w-140 -translate-x-1/2 -translate-y-1/2 justify-center p-4",
       className
     )}
     {...props}

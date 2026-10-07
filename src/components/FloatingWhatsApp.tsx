@@ -63,7 +63,7 @@ export default function FloatingWhatsApp() {
         <span
           className="pointer-events-none absolute inset-0 rounded-full animate-ping opacity-20"
           style={{
-            backgroundColor: "#bf9b60",
+            backgroundColor: "#561e29",
             animationDuration: "2s",
             animationIterationCount: "infinite",
           }}

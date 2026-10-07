@@ -31,7 +31,7 @@ export default function MissionVisionValuesSection() {
       ref={ref as React.RefObject<HTMLElement>}
     >
       <div>
-        <div className="max-w-[1200px] mx-auto px-6">
+        <div className="max-w-300 mx-auto px-6">
           <div
             className={`text-center mb-14 transition-all duration-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
               }`}
@@ -45,7 +45,7 @@ export default function MissionVisionValuesSection() {
             >
               Um jeito de fazer advocacia
             </h2>
-            <p className="text-text-muted text-sm max-w-[640px] mx-auto leading-relaxed font-body">
+            <p className="text-text-muted text-sm max-w-160 mx-auto leading-relaxed font-body">
               Direcionamos nossa atuação para oferecer segurança jurídica, clareza
               e um suporte constante que acompanhe a evolução do seu processo.
             </p>
@@ -60,7 +60,7 @@ export default function MissionVisionValuesSection() {
                   className={`bg-bg-card border border-border-default rounded-xl p-6 transition-all duration-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
                     }`}
                 >
-                  <div className="w-11 h-11 bg-primary/10 rounded-xl flex items-center justify-center mb-4 text-primary">
+                  <div className="w-11 h-11 bg-secondary/25 rounded-xl flex items-center justify-center mb-4 text-primary">
                     <Icon className="w-5 h-5" />
                   </div>
                   <h3 className="font-heading font-semibold text-text-primary text-[15px] mb-2 leading-snug">

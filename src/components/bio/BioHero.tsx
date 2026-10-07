@@ -5,12 +5,12 @@ export default function BioHero() {
         Atendimento estratégico
       </p>
       <h2 className="mt-2 font-heading text-xl font-bold leading-tight text-text-primary">
-        Seu direito merece resposta rapida, orientacao clara e acao eficiente.
+        Seu direito merece resposta rápida, orientação clara e ação eficiente.
       </h2>
       <p className="mt-3 text-sm leading-relaxed text-text-secondary font-body">
-        Se voce esta enfrentando problemas trabalhistas, previdenciarios, civeis
-        ou criminais, nossa equipe oferece atendimento direto e objetivo para
-        transformar incerteza em solucao juridica.
+        Se você está enfrentando problemas trabalhistas, previdenciários ou
+        cíveis, nossa equipe oferece atendimento direto e objetivo para
+        transformar incerteza em solução jurídica.
       </p>
     </section>
   );

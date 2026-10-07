@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import {
   hasOptionalConsent,
   COOKIE_CONSENT_UPDATED_EVENT,
@@ -58,8 +58,32 @@ function loadMetaPixel(pixelId: string): void {
   document.head.appendChild(script);
 }
 
+function setTrackingEnabled(enabled: boolean): void {
+  if (typeof window === "undefined") return;
+
+  if (GA_ID) {
+    (window as unknown as Record<string, boolean>)[`ga-disable-${GA_ID}`] = !enabled;
+    const gtag = (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag;
+    if (typeof gtag === "function") {
+      gtag("consent", "update", {
+        analytics_storage: enabled ? "granted" : "denied",
+        ad_storage: enabled ? "granted" : "denied",
+      });
+    }
+  }
+
+  const fbq = (window as unknown as { fbq?: (...args: unknown[]) => void }).fbq;
+  if (typeof fbq === "function") {
+    fbq("consent", enabled ? "grant" : "revoke");
+  }
+}
+
 function runAnalytics(): void {
-  if (!hasOptionalConsent()) return;
+  if (!hasOptionalConsent()) {
+    setTrackingEnabled(false);
+    return;
+  }
+  setTrackingEnabled(true);
   if (GA_ID) loadGA(GA_ID);
   if (GTM_ID) loadGTM(GTM_ID);
   if (META_PIXEL_ID) loadMetaPixel(META_PIXEL_ID);
@@ -70,20 +94,14 @@ function runAnalytics(): void {
  * aceitar cookies opcionais (LGPD). Não bloqueia a renderização.
  */
 export default function Analytics() {
-  const loaded = useRef(false);
-
   useEffect(() => {
-    const load = () => {
-      if (loaded.current) return;
-      if (hasOptionalConsent()) {
-        runAnalytics();
-        loaded.current = true;
-      }
+    const sync = () => {
+      runAnalytics();
     };
 
-    load();
-    window.addEventListener(COOKIE_CONSENT_UPDATED_EVENT, load);
-    return () => window.removeEventListener(COOKIE_CONSENT_UPDATED_EVENT, load);
+    sync();
+    window.addEventListener(COOKIE_CONSENT_UPDATED_EVENT, sync);
+    return () => window.removeEventListener(COOKIE_CONSENT_UPDATED_EVENT, sync);
   }, []);
 
   return null;

@@ -1,7 +1,7 @@
-import { Scale, ShieldCheck, UserRound, FileText } from "lucide-react";
+import { Scale, UserRound, FileText, Landmark } from "lucide-react";
 import { servicesData } from "@/data/servicesData";
 
-const icons = [Scale, UserRound, FileText, ShieldCheck] as const;
+const icons = [Scale, UserRound, FileText, Landmark] as const;
 
 export default function BioServices() {
   return (
@@ -20,7 +20,7 @@ export default function BioServices() {
               className="rounded-xl border border-border-default bg-bg-card px-4 py-3"
             >
               <div className="flex items-start gap-2">
-                <span className="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
+                <span className="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-secondary/25 text-primary">
                   <Icon className="h-4 w-4" aria-hidden />
                 </span>
                 <div>

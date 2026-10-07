@@ -36,7 +36,7 @@ export default function CookiesPage() {
     <>
       <Navbar />
       <main className="min-h-screen bg-bg-base">
-        <div className="max-w-[720px] mx-auto px-6 py-10">
+        <div className="max-w-180 mx-auto px-6 py-10">
           {/* Breadcrumb */}
           <nav
             aria-label="Navegação estrutural"
@@ -160,10 +160,10 @@ export default function CookiesPage() {
               </h2>
               <p className="mb-4">
                 Você pode revisar e alterar suas preferências de cookies a
-                qualquer momento. Ao clicar no botão abaixo, você será
-                redirecionado à página inicial e o banner de cookies será
-                exibido novamente para que você possa escolher entre aceitar
-                apenas os essenciais ou todos.
+                qualquer momento. Ao clicar no botão abaixo, o aviso é aberto
+                nesta página para você manter apenas os essenciais, aceitar
+                todos ou personalizar a escolha. A preferência anterior só muda
+                quando você salva uma nova.
               </p>
               <AlterarPreferenciasButton />
             </div>

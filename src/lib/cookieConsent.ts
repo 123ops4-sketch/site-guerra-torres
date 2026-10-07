@@ -34,3 +34,51 @@ export function hasOptionalConsent(): boolean {
 
 /** Nome do evento disparado quando o usuário atualiza preferências de cookies. */
 export const COOKIE_CONSENT_UPDATED_EVENT = "cookie-consent-updated";
+
+/** Abre o aviso para revisar a escolha já salva, sem apagar o consentimento. */
+export const COOKIE_CONSENT_OPEN_EVENT = "cookie-consent-open";
+
+export interface CookieConsentOpenDetail {
+  focus?: boolean;
+  view?: "notice" | "preferences";
+}
+
+export function saveConsent(optional: boolean): void {
+  if (typeof window === "undefined") return;
+  try {
+    const state: CookieConsentState = {
+      essential: true,
+      optional,
+      timestamp: Date.now(),
+    };
+    localStorage.setItem(COOKIE_CONSENT_STORAGE_KEY, JSON.stringify(state));
+    window.dispatchEvent(new CustomEvent(COOKIE_CONSENT_UPDATED_EVENT));
+  } catch {
+    // armazenamento indisponível (modo privado ou bloqueio)
+  }
+}
+
+export function openCookiePreferences(): void {
+  if (typeof window === "undefined") return;
+  const detail: CookieConsentOpenDetail = { focus: true, view: "preferences" };
+  window.dispatchEvent(new CustomEvent(COOKIE_CONSENT_OPEN_EVENT, { detail }));
+}
+
+export function wantsPreferenceReview(): boolean {
+  if (typeof window === "undefined") return false;
+  return new URLSearchParams(window.location.search).get("cookies") === "preferencias";
+}
+
+/** Remove `?cookies=preferencias` sem nova navegação. */
+export function clearPreferenceReviewParam(): void {
+  if (typeof window === "undefined") return;
+  const url = new URL(window.location.href);
+  if (url.searchParams.get("cookies") !== "preferencias") return;
+  url.searchParams.delete("cookies");
+  const search = url.searchParams.toString();
+  window.history.replaceState(
+    window.history.state,
+    "",
+    `${url.pathname}${search ? `?${search}` : ""}${url.hash}`
+  );
+}

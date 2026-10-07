@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Montserrat, Open_Sans } from "next/font/google";
+import { Source_Serif_4 } from "next/font/google";
 import CookieConsent from "@/components/CookieConsent";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import Analytics from "@/components/Analytics";
@@ -8,17 +8,10 @@ import { companyData } from "@/data/companyData";
 import { getBaseUrl } from "@/lib/env";
 import "./globals.css";
 
-const montserrat = Montserrat({
-  variable: "--font-montserrat",
+const sourceSerif = Source_Serif_4({
+  variable: "--font-source-serif",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
-  display: "swap",
-});
-
-const openSans = Open_Sans({
-  variable: "--font-open-sans",
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
   display: "swap",
 });
 
@@ -26,19 +19,19 @@ const siteName = `${companyData.companyName}`;
 
 /** Title 50–60 chars para SEO. */
 function buildTitle(): string {
-  const full = `${siteName} — Direito do Trabalho, Previdenciário, Cível e Criminal`;
+  const full = `${siteName} — Direito do Trabalho, Previdenciário e Cível`;
   return full.length > 60 ? full.slice(0, 57).trim() + "..." : full;
 }
 
 /** Meta description 150–160 chars para SEO. */
 function buildDescription(): string {
-  const full = `A ${siteName} oferece atendimento jurídico especializado em Direito do Trabalho, Previdenciário, Cível e Criminal. Agende sua consulta.`;
+  const full = `A ${siteName} oferece atendimento jurídico especializado em Direito do Trabalho, Previdenciário e Cível. Agende sua consulta.`;
   return full.length > 160 ? full.slice(0, 157).trim() + "..." : full;
 }
 
 const title = buildTitle();
 const description = buildDescription();
-const ogDescription = `Atendimento jurídico especializado em Direito do Trabalho, Previdenciário, Cível e Criminal. Agende uma consulta com a ${companyData.companyName}.`;
+const ogDescription = `Atendimento jurídico especializado em Direito do Trabalho, Previdenciário e Cível. Agende uma consulta com a ${companyData.companyName}.`;
 
 function normalizeBaseUrl(url: string): string | undefined {
   const trimmed = url.trim();
@@ -67,7 +60,6 @@ export const metadata: Metadata = {
     "direito do trabalho",
     "direito previdenciário",
     "direito cível",
-    "direito criminal",
     companyData.companyName,
   ],
   alternates: { canonical: "/" },
@@ -101,7 +93,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className={`${montserrat.variable} ${openSans.variable}`}>
+    <html lang="pt-BR" className={sourceSerif.variable}>
       <body className="antialiased bg-bg-base text-text-primary">
         <JsonLdOrganization />
         <Analytics />

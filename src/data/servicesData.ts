@@ -21,8 +21,8 @@ export const servicesData: ServiceItem[] = [
       "Soluções para contratos, indenizações, cobranças e responsabilidade civil, buscando decisões favoráveis e segurança jurídica.",
   },
   {
-    title: "Direito Criminal",
+    title: "Direito Bancário",
     description:
-      "Defesa técnica em investigações e processos criminais, com atuação responsável, orientação ao cliente e acompanhamento em cada etapa.",
+      "Atuação em contratos bancários, revisão de juros, cobranças abusivas e negociações com instituições financeiras, com foco na defesa dos seus direitos.",
   },
 ];

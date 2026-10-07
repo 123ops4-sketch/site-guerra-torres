@@ -90,11 +90,11 @@ export default function FinalCta() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(191,155,96,0.08) 0%, transparent 70%)",
+            "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(202,164,101,0.16) 0%, transparent 70%)",
         }}
       />
 
-      <div className="max-w-[1200px] mx-auto px-6 relative z-10">
+      <div className="max-w-300 mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* Coluna esquerda: Formulário + Redes sociais */}
           <div className="space-y-8">
@@ -117,7 +117,7 @@ export default function FinalCta() {
                   </Link>{" "}
                   e o uso dos dados para contato e atendimento jurídico.
                 </p>
-                <div className="absolute left-[-9999px] w-1 h-1 overflow-hidden" aria-hidden>
+                <div className="absolute -left-2499.75 w-1 h-1 overflow-hidden" aria-hidden>
                   <label htmlFor={HONEYPOT_NAME}>Deixe em branco</label>
                   <input
                     id={HONEYPOT_NAME}
@@ -205,7 +205,7 @@ export default function FinalCta() {
                 <button
                   type="submit"
                   disabled={submitted || isSubmitting}
-                  className="w-full min-h-[48px] inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-gradient-orange text-white text-sm font-semibold font-heading rounded-xl transition-all hover:-translate-y-0.5 hover:shadow-orange disabled:opacity-70 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-bg-card"
+                  className="w-full min-h-12 inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-gradient-orange text-white text-sm font-semibold font-heading rounded-xl transition-all hover:-translate-y-0.5 hover:shadow-orange disabled:opacity-70 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-bg-card"
                 >
                   {isSubmitting ? (
                     <>
@@ -242,7 +242,7 @@ export default function FinalCta() {
                     rel="noopener noreferrer"
                     className="flex items-center gap-3 w-full px-4 py-3 rounded-xl border border-border-default hover:border-primary/40 hover:bg-bg-card-hover transition-all text-text-primary font-body text-sm"
                   >
-                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                    <div className="w-10 h-10 rounded-xl bg-secondary/25 flex items-center justify-center text-primary shrink-0">
                       <Instagram className="w-5 h-5" />
                     </div>
                     {companyData.social.instagram.label}
@@ -255,7 +255,7 @@ export default function FinalCta() {
                     rel="noopener noreferrer"
                     className="flex items-center gap-3 w-full px-4 py-3 rounded-xl border border-border-default hover:border-primary/40 hover:bg-bg-card-hover transition-all text-text-primary font-body text-sm"
                   >
-                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                    <div className="w-10 h-10 rounded-xl bg-secondary/25 flex items-center justify-center text-primary shrink-0">
                       <Youtube className="w-5 h-5" />
                     </div>
                     {companyData.social.youtube.label}
@@ -268,7 +268,7 @@ export default function FinalCta() {
                     rel="noopener noreferrer"
                     className="flex items-center gap-3 w-full px-4 py-3 rounded-xl border border-border-default hover:border-primary/40 hover:bg-bg-card-hover transition-all text-text-primary font-body text-sm"
                   >
-                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                    <div className="w-10 h-10 rounded-xl bg-secondary/25 flex items-center justify-center text-primary shrink-0">
                       <Facebook className="w-5 h-5" />
                     </div>
                     {companyData.social.facebook.label}
@@ -294,7 +294,7 @@ export default function FinalCta() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 w-full px-4 py-3 rounded-xl border border-border-default hover:border-primary/40 hover:bg-bg-card-hover transition-all text-text-primary font-body text-sm"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                  <div className="w-10 h-10 rounded-xl bg-secondary/25 flex items-center justify-center text-primary shrink-0">
                     <MessageCircle className="w-5 h-5" />
                   </div>
                   WhatsApp para Atendimento — {companyData.phone}
@@ -303,7 +303,7 @@ export default function FinalCta() {
                   href={`tel:${companyData.phone.replace(/\D/g, "")}`}
                   className="flex items-center gap-3 w-full px-4 py-3 rounded-xl border border-border-default hover:border-primary/40 hover:bg-bg-card-hover transition-all text-text-primary font-body text-sm"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                  <div className="w-10 h-10 rounded-xl bg-secondary/25 flex items-center justify-center text-primary shrink-0">
                     <Phone className="w-5 h-5" />
                   </div>
                   Telefone Comercial — {companyData.phone}
@@ -312,13 +312,13 @@ export default function FinalCta() {
                   href={`mailto:${companyData.email}`}
                   className="flex items-center gap-3 w-full px-4 py-3 rounded-xl border border-border-default hover:border-primary/40 hover:bg-bg-card-hover transition-all text-text-primary font-body text-sm"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                  <div className="w-10 h-10 rounded-xl bg-secondary/25 flex items-center justify-center text-primary shrink-0">
                     <Mail className="w-5 h-5" />
                   </div>
                   E-mail Comercial — {companyData.email}
                 </a>
                 <div className="flex items-center gap-3 px-4 py-3 rounded-xl border border-border-default text-text-primary font-body text-sm">
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                  <div className="w-10 h-10 rounded-xl bg-secondary/25 flex items-center justify-center text-primary shrink-0">
                     <Clock className="w-5 h-5" />
                   </div>
                   Horário de Atendimento — {companyData.businessHours}

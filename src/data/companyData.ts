@@ -30,11 +30,11 @@ export interface CompanyData {
 // Dados institucionais estáticos da empresa.
 // A URL oficial do site é preenchida via .env (NEXT_PUBLIC_SITE_URL) onde necessário.
 export const companyData: CompanyData = {
-  companyName: "LGT Advocacia",
+  companyName: "GT Advocacia",
   siteUrl: "lgtadvocacia.com.br",
   whatsapp: "64 9 9999-5572",
   phone: "(64) 9 9999-5572",
-  email: "lgtadvgo@gmail.com",
+  email: "guerraetorresadvocacia@gmail.com",
   businessHours: "Segunda a Sexta: 8h às 18h",
   social: {
     // Exemplo de preenchimento:
@@ -44,7 +44,7 @@ export const companyData: CompanyData = {
     },
     facebook: {
       url: "https://facebook.com/lgt.advocacia",
-      label: "LGT Advocacia",
+      label: "GT Advocacia",
     },
     youtube: {
       url: "",
@@ -76,7 +76,7 @@ export const companyData: CompanyData = {
     "Direito do Trabalho",
     "Direito Previdenciário",
     "Direito Cível",
-    "Direito Criminal",
+    "Direito Bancário",
     "Outros",
   ],
 };
