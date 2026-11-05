@@ -8,11 +8,11 @@ import ProfessionalCard, {
 const professionals: Professional[] = [
   {
     name: "Dra. Allane F. Guerra",
-    role: "Direito de Família e Trabalho",
-    areas: ["Família", "Trabalho"],
+    role: "Direito do Consumidor e Trabalho",
+    areas: ["Consumidor", "Trabalho"],
     oab: "OAB/GO 72.570",
     phone: "(64) 9 9999-5572",
-    bio: "Advogada capacitada para te auxiliar com os pilares mais importantes da vida: Trabalho e Família.",
+    bio: "Advogada capacitada para te auxiliar nas relações de trabalho e de consumo, com atuação em Direito do Trabalho e Direito do Consumidor.",
     photoUrl: "/allane.jpg",
   },
   {
