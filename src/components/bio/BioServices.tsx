@@ -1,7 +1,7 @@
-import { Scale, UserRound, FileText, Landmark } from "lucide-react";
+import { Scale, UserRound, FileText, Landmark, ShoppingCart } from "lucide-react";
 import { servicesData } from "@/data/servicesData";
 
-const icons = [Scale, UserRound, FileText, Landmark] as const;
+const icons = [Scale, UserRound, FileText, Landmark, ShoppingCart] as const;
 
 export default function BioServices() {
   return (
@@ -11,7 +11,7 @@ export default function BioServices() {
       </h3>
 
       <div className="space-y-2">
-        {servicesData.slice(0, 4).map((service, index) => {
+        {servicesData.map((service, index) => {
           const Icon = icons[index];
 
           return (

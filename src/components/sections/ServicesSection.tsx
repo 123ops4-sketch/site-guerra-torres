@@ -6,10 +6,11 @@ import {
   UserRound,
   FileText,
   Landmark,
+  ShoppingCart,
 } from "lucide-react";
 import { servicesData } from "@/data/servicesData";
 
-const serviceIcons = [Scale, UserRound, FileText, Landmark] as const;
+const serviceIcons = [Scale, UserRound, FileText, Landmark, ShoppingCart] as const;
 
 export default function ServicesSection() {
   const { ref, isVisible } = useScrollAnimation();
@@ -50,11 +51,17 @@ export default function ServicesSection() {
               "stagger-2",
               "stagger-3",
               "stagger-4",
+              "stagger-5",
             ][i];
+            // Último card ocupa a linha inteira quando o total é ímpar (evita card órfão).
+            const spanClass =
+              servicesData.length % 2 === 1 && i === servicesData.length - 1
+                ? "sm:col-span-2"
+                : "";
             return (
               <div
                 key={service.title}
-                className={`bg-bg-card border border-border-default rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-secondary/70 hover:shadow-[0_12px_28px_rgba(15,23,42,0.12),0_0_20px_rgba(202,164,101,0.22)] cursor-pointer group ${isVisible
+                className={`bg-bg-card border border-border-default rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-secondary/70 hover:shadow-[0_12px_28px_rgba(15,23,42,0.12),0_0_20px_rgba(202,164,101,0.22)] cursor-pointer group ${spanClass} ${isVisible
                   ? `animate-fade-in-up ${delayClass}`
                   : "opacity-0"
                   }`}

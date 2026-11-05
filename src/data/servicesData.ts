@@ -25,4 +25,9 @@ export const servicesData: ServiceItem[] = [
     description:
       "Atuação em contratos bancários, revisão de juros, cobranças abusivas e negociações com instituições financeiras, com foco na defesa dos seus direitos.",
   },
+  {
+    title: "Direito do Consumidor",
+    description:
+      "Defesa em relações de consumo: cobranças indevidas, negativação irregular, produtos e serviços com defeito e práticas abusivas, com base no Código de Defesa do Consumidor.",
+  },
 ];
