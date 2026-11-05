@@ -39,11 +39,11 @@ export const companyData: CompanyData = {
   social: {
     // Exemplo de preenchimento:
     instagram: {
-      url: "https://instagram.com/lgt.advocacia",
-      label: "@lgt.advocacia",
+      url: "https://instagram.com/guerraetorresadv",
+      label: "@guerraetorresadv",
     },
     facebook: {
-      url: "https://facebook.com/lgt.advocacia",
+      url: "https://facebook.com/guerraetorresadv",
       label: "GT Advocacia",
     },
     youtube: {
